@@ -19,7 +19,7 @@ export const analyzeSimulation = async (params: SimulationParams, results: Simul
       * 4,900원 요금제: ${params.tier1Ratio}%
       * 9,900원 요금제: ${params.tier2Ratio}%
       * 18,750원 요금제: ${params.tier3Ratio}%
-    - 무료 기간: ${params.freeMonths}개월
+    - 무상기간: ${params.freeMonths}개월
     - 월 신규 가입자: ${params.acquisitionRate}명
     - 이탈률: ${params.churnRate}%
     

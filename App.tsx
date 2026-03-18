@@ -220,7 +220,7 @@ const App: React.FC = () => {
                 <InputGroup label="4,900원 (%)" unit="%" value={params.tier1Ratio} min={0} max={100} onChange={(v) => setParams(prev => ({ ...prev, tier1Ratio: v }))} />
                 <InputGroup label="9,900원 (%)" unit="%" value={params.tier2Ratio} min={0} max={100} onChange={(v) => setParams(prev => ({ ...prev, tier2Ratio: v }))} />
                 <InputGroup label="18,750원 (%)" unit="%" value={params.tier3Ratio} min={0} max={100} onChange={(v) => setParams(prev => ({ ...prev, tier3Ratio: v }))} />
-                <InputGroup label="무료 기간" unit="개월" value={params.freeMonths} min={0} max={24} step={1} onChange={(v) => setParams(prev => ({ ...prev, freeMonths: v }))} />
+                <InputGroup label="무상기간" unit="개월" value={params.freeMonths} min={0} max={24} step={1} onChange={(v) => setParams(prev => ({ ...prev, freeMonths: v }))} />
               </div>
 
               {/* OpEx & Growth Group */}
