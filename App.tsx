@@ -322,23 +322,38 @@ const App: React.FC = () => {
                       <th className="px-6 py-4">연차</th>
                       <th className="px-6 py-4">개월</th>
                       <th className="px-6 py-4">사용자</th>
-                      <th className="px-6 py-4 text-emerald-600">판매 매출</th>
-                      <th className="px-6 py-4 text-blue-600">구독 매출</th>
-                      <th className="px-6 py-4 text-rose-500">총 비용</th>
+                      <th className="px-6 py-4 text-emerald-600">판매 매출(연)</th>
+                      <th className="px-6 py-4 text-blue-600">구독 매출(연)</th>
+                      <th className="px-6 py-4 text-rose-500">총 비용(연)</th>
                       <th className="px-6 py-4 bg-indigo-50 text-indigo-700">누적 손익</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-100">
                     {[12, 24, 36, 48, 60].map((m, idx) => {
                       const data = results.monthlyData[m - 1];
+                      
+                      let annualInstallation = 0;
+                      let annualSubscription = 0;
+                      let annualCost = 0;
+                      const startIdx = idx * 12;
+                      const endIdx = startIdx + 12;
+                      
+                      for (let i = startIdx; i < endIdx; i++) {
+                        if (results.monthlyData[i]) {
+                          annualInstallation += results.monthlyData[i].installationRevenue;
+                          annualSubscription += results.monthlyData[i].subscriptionRevenue;
+                          annualCost += results.monthlyData[i].totalCost;
+                        }
+                      }
+
                       return (
                         <tr key={m} className="hover:bg-slate-50 transition-colors">
                           <td className="px-6 py-4 font-bold text-indigo-600">{idx + 1}년차</td>
                           <td className="px-6 py-4 text-slate-500">{m}m</td>
                           <td className="px-6 py-4 font-semibold">{data?.totalUsers.toLocaleString()}명</td>
-                          <td className="px-6 py-4 font-bold text-emerald-600">₩{formatCurrency(data?.installationRevenue || 0)}</td>
-                          <td className="px-6 py-4 font-bold text-blue-600">₩{formatCurrency(data?.subscriptionRevenue || 0)}</td>
-                          <td className="px-6 py-4 font-bold text-rose-500">₩{formatCurrency(data?.totalCost || 0)}</td>
+                          <td className="px-6 py-4 font-bold text-emerald-600">₩{formatCurrency(annualInstallation)}</td>
+                          <td className="px-6 py-4 font-bold text-blue-600">₩{formatCurrency(annualSubscription)}</td>
+                          <td className="px-6 py-4 font-bold text-rose-500">₩{formatCurrency(annualCost)}</td>
                           <td className={`px-6 py-4 font-black ${data?.cumulativeProfit >= 0 ? 'bg-indigo-50 text-indigo-600' : 'bg-rose-50 text-rose-600'}`}>₩{formatCurrency(data?.cumulativeProfit || 0)}</td>
                         </tr>
                       );
