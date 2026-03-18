@@ -6,7 +6,7 @@ const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
 export const analyzeSimulation = async (params: SimulationParams, results: SimulationResults): Promise<string> => {
   const prompt = `
-    헤이븐 2(Haven 2) 구독 모델 시뮬레이션 결과를 분석하고 전략적 조언을 제공해주세요.
+    가드 G1 프로(Guard G1 Pro) 구독 모델 시뮬레이션 결과를 분석하고 전략적 조언을 제공해주세요.
     
     [입력 파라미터]
     - 제조원가: ${params.manufacturingCost.toLocaleString()}원
@@ -54,11 +54,11 @@ export const analyzeSimulation = async (params: SimulationParams, results: Simul
 export const getCompetitorBenchmark = async (weightedAvgFee: number) => {
   const prompt = `
     Compare current global and Korean smart home security subscription plans (like Ring Protect, Nest Aware, Arlo Secure, and Korean providers like KT/SKT home security).
-    The user's current project "Haven 2" has a weighted average monthly fee of ₩${Math.round(weightedAvgFee).toLocaleString()}.
+    The user's current project "Guard G1 Pro" has a weighted average monthly fee of ₩${Math.round(weightedAvgFee).toLocaleString()}.
     
     Please provide:
     1. A comparison table of top 3 global and top 1 local competitors.
-    2. An analysis of Haven 2's price competitiveness compared to these market leaders.
+    2. An analysis of Guard G1 Pro's price competitiveness compared to these market leaders.
     3. Suggested features to justify the 18,750 KRW high-tier plan.
     
     Answer in Korean. Focus on the most recent 2024-2025 pricing.

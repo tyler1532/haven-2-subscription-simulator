@@ -155,7 +155,7 @@ const App: React.FC = () => {
             <div className="bg-blue-600 p-2 rounded-lg">
               <Zap className="text-white w-5 h-5" />
             </div>
-            <h1 className="text-xl font-bold text-slate-800 tracking-tight">Haven 2 Simulation</h1>
+            <h1 className="text-xl font-bold text-slate-800 tracking-tight">Guard G1 Pro Simulation</h1>
           </div>
           <div className="flex items-center gap-3">
              <button 
@@ -409,7 +409,7 @@ const App: React.FC = () => {
         </section>
       </main>
       <footer className="max-w-7xl mx-auto px-4 mt-12 pb-8 text-center text-slate-300 text-[10px] font-medium tracking-widest uppercase">
-        Haven 2 Project • Market Intelligence Edition v2.9
+        Guard G1 Pro Project • Market Intelligence Edition v2.9
       </footer>
     </div>
   );
